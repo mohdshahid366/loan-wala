@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Niramit:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <title>లోన్ వాలా - అధికారిక</title>
+    <style>
+        /* CSS Variables */
+        :root {
+            --max-width: 1200px; 
+            --deep-blue: #004d99;
+            --accent-blue: #0066cc;
+            --cta-green: #2ECC71; /* New, strong action color */
+            --transition: 0.3s ease-in-out; 
+            --modal-bg: rgba(0, 0, 0, 0.7);
+        }
+
+        /* Basic Reset and Global Styles */
+        body {
+            /* తెలుగు ఫాంట్ కోసం 'Niramit'ను చేర్చాం */
+            font-family: 'Inter', 'Niramit', sans-serif; 
+            text-align: center; 
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+
+        /* Content Wrapper for standardizing width and centering */
+        .page-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Section */
+        header {
+            background-color: var(--deep-blue);
+            color: white;
+            padding: 15px 0; 
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25); 
+        }
+
+        header .page-container {
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        header img {
+            height: 50px; 
+            width: 50px;
+            margin-right: 15px;
+            border-radius: 50%;
+        }
+
+        .title h1 {
+            margin: 0;
+            font-size: 28px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 800; 
+        }
+        .title p {
+            margin: 0;
+            color: #add8e6;
+            font-size: 13px;
+            font-weight: 400;
+        }
+
+        .header-right {
+            text-align: right; 
+            font-size: 0.9em; 
+            line-height: 1.5; 
+        }
+
+        .header-right p {
+            margin: 0; 
+            display: flex; 
+            align-items: center;
+            justify-content: flex-end; 
+            gap: 8px; 
+        }
+        .header-right a {
+             color: white;
+             text-decoration: none;
+             transition: color 0.3s;
+        }
+        .header-right a:hover {
+             color: var(--cta-green);
+        }
+
+        .header-right i {
+            font-size: 1.1em; 
+            color: #ffd700; /* Gold/Accent for key contact info */
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: var(--accent-blue);
+            padding: 12px 0;
+            margin-bottom: 40px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 25px;
+            margin: 0 5px;
+            display: inline-block;
+            border-radius: 20px; 
+            transition: background-color 0.3s;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+
+        nav a:hover {
+            background-color: var(--deep-blue);
+        }
+
+        /* Video Section - Centering and Responsiveness */
+        .video-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0;
+            background-color: white;
+            border-radius: 12px; 
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); 
+            overflow: hidden;
+            margin-bottom: 50px;
+            border: 1px solid #ddd; 
+        }
+
+        /* Aspect Ratio Trick for Responsive Centering (16:9) */
+        .video-responsive {
+            position: relative;
+            padding-bottom: 56.25%; 
+            height: 0;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .video-responsive iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Apply Now Button (Primary CTA) */
+        .apply-button {
+            background-color: var(--cta-green); 
+            color: white;
+            padding: 18px 50px;
+            text-decoration: none;
+            font-size: 1.5em;
+            font-weight: 700;
+            border-radius: 40px; 
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.1s, box-shadow 0.3s;
+            display: inline-block;
+            margin-bottom: 50px;
+            box-shadow: 0 5px 15px rgba(46, 204, 113, 0.4); 
+        }
+
+        .apply-button:hover {
+            background-color: #27AE60; 
+            transform: translateY(-3px); 
+            box-shadow: 0 8px 20px rgba(46, 204, 113, 0.5);
+        }
+
+        /* Footer */
+        .site-footer {
+            margin-top: 50px;
+            padding: 25px 0;
+            background-color: var(--deep-blue); 
+            color: #fff;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.15); 
+        }
+
+        .site-footer .social-icons {
+            text-align: center;
+            margin: 0 0 15px;
+        }
+
+        .site-footer .social-icons a {
+            color: #fff;
+            font-size: 1.6rem;
+            margin: 0 15px;
+            text-decoration: none;
+            transition: color var(--transition);
+            display: inline-block;
+        }
+
+        .site-footer .social-icons a:hover {
+            color: var(--cta-green);
+        }
+        
+        .site-footer p {
+            font-size: 0.85em;
+            line-height: 1.6;
+            padding: 0 10px;
+        }
+        /* Modal Styles */
+        .modal {
+            display: none; 
+            position: fixed;
+            z-index: 100; 
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: var(--modal-bg);
+            backdrop-filter: blur(4px); 
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto; 
+            padding: 30px; 
+            border-radius: 12px;
+            width: 90%; 
+            max-width: 550px; 
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .form-input-telugu {
+            /* Kept existing styles but ensured consistency */
+            width: 100%;
+            padding: 12px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 1rem;
+            font-family: 'Inter', 'Niramit', sans-serif;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .form-input-telugu:focus {
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 5px rgba(0, 77, 153, 0.3);
+            outline: none;
+        }
+        
+        .form-submit-btn {
+            background-color: var(--accent-blue); 
+            transition: background-color 0.3s;
+        }
+        .form-submit-btn:hover {
+            background-color: var(--deep-blue);
+        }
+        .success-message {
+            /* Making the success message stand out more */
+            background-color: #e6f7e9;
+            color: #27ae60;
+            border: 1px solid #2ecc71;
+            font-weight: 600;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        /* ================================================= */
+/* MEDIA QUERY: Mobile Optimization (Max Width 600px) */
+/* ================================================= */
+
+@media (max-width: 600px) {
+    
+    /* HEADER FIXES: Making it stacked for mobile */
+    header .page-container {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .header-left {
+        flex-direction: column; /* Stack logo and title */
+        padding-left: 0;
+        margin-bottom: 15px; /* Space below logo/title block */
+    }
+
+    header img {
+        height: 45px; /* Smaller logo */
+        width: 45px;
+        margin-right: 0;
+        margin-bottom: 5px;
+    }
+
+    .title h1 {
+        font-size: 22px; /* Smaller main title */
+        letter-spacing: 1px;
+    }
+    .title p {
+        font-size: 10px; /* Smaller subtitle */
+    }
+
+    .header-right {
+        text-align: center;
+        width: 100%; /* Take full width */
+        font-size: 0.8em;
+    }
+    .header-right p {
+        justify-content: center; /* Center contact icons */
+        margin: 1px 0;
+    }
+    
+    /* NAVIGATION FIXES: Making links smaller */
+    nav a {
+        font-size: 0.8em; /* Smaller font for language links */
+        padding: 5px 12px; /* Less padding */
+        margin: 0 2px;
+    }
+
+    /* CTA BUTTON FIXES: Making button full width and more compact */
+    .apply-button {
+        font-size: 1.2em;
+        padding: 15px 30px;
+        width: 90%; /* Nearly full width button */
+        margin-top: 20px;
+    }
+
+    /* VALUE PROPOSITIONS FIXES: Stacking cards neatly */
+    .value-propositions .flex-wrap {
+        flex-direction: column; /* Stack cards on top of each other */
+        align-items: center;
+    }
+    .value-card {
+        width: 95% !important; /* Full width for cards on mobile */
+        max-width: 350px;
+        margin-bottom: 15px;
+    }
+    .value-card h3 {
+        font-size: 18px;
+    }
+    
+    .site-footer p{
+        font-size: 0.75em;
+    }
+}
+    </style>
+    <script>
+        // Tailwind configuration for accent color
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'accent': '#004d99', /* deep-blue */
+                        'cta': '#2ECC71',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    
+    <header>
+        <div class="page-container">
+            <div class="header-left">
+                <img src="mi.jpg" alt="లోన్ వాలా లోగో">
+                <div class="title">
+                    <h1>లోన్ వాలా</h1>
+                <p>రుణాలు · ఫైనాన్స్ · లక్ష్యాలు</p>
+                </div>
+            </div>
+            <div class="header-right">
+                <p><i class="fas fa-phone"></i> +91-9705607033</p>
+                <p><i class="fas fa-envelope"></i> office@email.com</p>
+                <p><a href="https://www.google.com/maps/search/Charminar+Bus+Depot,+Taiba+Market,+Opp.+Hayath+College,+Hyd" target="_blank" aria-label="Map Location"><i class="fas fa-map-marker-alt"></i> మీ చిరునామా 22</a></p>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="page-container">
+            <a href="index.html">ఇంగ్లీష్</a>
+            <a href="loan-hindi.html">హిందీ</a>
+            <a href="loan-telugu.html">తెలుగు</a>
+        </div>
+    </nav>
+
+    <div class="page-container">
+        <div class="video-wrapper">
+            <div class="video-responsive">
+                <iframe src="https://www.youtube.com/embed/MhCTiKmk7p8" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+
+        <div class="button-container">
+            <a href="#" id="openModalBtn" class="apply-button">రుణం కోసం ఇప్పుడే దరఖాస్తు చేయండి</a>
+        </div>
+    </div>
+    
+    <div id="applicationModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeModalBtn">×</span>
+            <h2 class="text-3xl font-extrabold mb-6 text-accent text-center">రుణ దరఖాస్తు ఫారం</h2>
+            <form id="loanApplicationForm" class="space-y-4">
+                
+                <div>
+                    <label for="fullName" class="block text-left text-gray-700 font-medium">పూర్తి పేరు:</label>
+                    <input type="text" id="fullName" name="fullName" required 
+                           class="form-input-telugu" 
+                           placeholder="ఉదాహరణ: రమేష్ కుమార్">
+                </div>
+
+                <div>
+                    <label for="mobile" class="block text-left text-gray-700 font-medium">మొబైల్ నంబర్:</label>
+                    <input type="tel" id="mobile" name="mobile" required pattern="[0-9]{10}"
+                           class="form-input-telugu" 
+                           placeholder="ఉదాహరణ: 9876543210">
+                </div>
+                
+                <div>
+                    <label for="email" class="block text-left text-gray-700 font-medium">ఈమెయిల్:</label>
+                    <input type="email" id="email" name="email"
+                           class="form-input-telugu" 
+                           placeholder="example@domain.com">
+                </div>
+
+                <div>
+                    <label for="loanType" class="block text-left text-gray-700 font-medium">రుణం రకం:</label>
+                    <select id="loanType" name="loanType" required class="form-input-telugu">
+                        <option value="">దయచేసి ఎంచుకోండి</option>
+                        <option value="Personal">వ్యక్తిగత రుణం (Personal Loan)</option>
+                        <option value="Business">వ్యాపార రుణం (Business Loan)</option>
+                        <option value="Home">గృహ రుణం (Home Loan)</option>
+                        <option value="Car">కారు రుణం (Car Loan)</option>
+                        <option value="Other">ఇతర</option>
+                    </select>  
+                </div>
+
+                <div>
+                    <label for="message" class="block text-left text-gray-700 font-medium">సందేశం (Message):</label>
+                    <textarea id="message" name="message" rows="3" class="form-input-telugu"
+                              placeholder="మరిన్ని వివరాల కోసం ఇక్కడ రాయండి..."></textarea>
+                </div>
+
+                <div id="submissionMessage" class="success-message hidden">
+                    విజయవంతంగా సమర్పించబడింది! మేము త్వరలో మిమ్మల్ని సంప్రదిస్తాము.
+                </div>
+
+                <button type="submit" class="form-submit-btn bg-accent">
+                    దరఖాస్తును సమర్పించండి
+                </button>
+            </form>
+        </div>
+    </div>
+    
+    <section class="value-propositions mt-12 mb-12">
+    <h2 class="text-3xl font-bold text-center mb-10 text-accent">లోన్ వాలా (LOAN WALA) ను ఎందుకు ఎంచుకోవాలి?</h2>
+    <div class="flex flex-wrap justify-around gap-8">
+        <div class="value-card w-full sm:w-1/3 md:w-1/4 p-6 bg-white rounded-xl shadow-lg transition duration-300 hover:shadow-xl hover:scale-[1.02] border-t-4 border-cta">
+            <div class="text-4xl text-cta mb-4"><i class="fas fa-clock"></i></div>
+            <h3 class="text-xl font-extrabold mb-2 text-deep-blue">వేగవంతమైన 24 గంటల్లో ఆమోదం</h3>
+            <p class="text-gray-600 text-sm">మీ లక్ష్యాలు వేచి ఉండకుండా, 24 పని గంటలలోపు నిర్ణయం, నిధులు మీకు అందేలా మా డిజిటల్ దరఖాస్తు ప్రక్రియ సులభతరం చేస్తుంది.</p>
+        </div>
+        <div class="value-card w-full sm:w-1/3 md:w-1/4 p-6 bg-white rounded-xl shadow-lg transition duration-300 hover:shadow-xl hover:scale-[1.02] border-t-4 border-cta">
+            <div class="text-4xl text-cta mb-4"><i class="fas fa-shield-alt"></i></div>
+            <h3 class="text-xl font-extrabold mb-2 text-deep-blue">పారదర్శకత, దాచిన రుసుములు లేవు</h3>
+            <p class="text-gray-600 text-sm">ఎటువంటి దాచిన ఛార్జీలు, సంక్లిష్టమైన నిబంధనలు లేదా ఊహించని దరఖాస్తు రుసుములు లేకుండా, మేము పూర్తి పారదర్శకతకు హామీ ఇస్తున్నాము. విశ్వాసమే మా ప్రధాన నిబద్ధత.</p>
+        </div>
+        <div class="value-card w-full sm:w-1/3 md:w-1/4 p-6 bg-white rounded-xl shadow-lg transition duration-300 hover:shadow-xl hover:scale-[1.02] border-t-4 border-cta">
+            <div class="text-4xl text-cta mb-4"><i class="fas fa-thumbs-up"></i></div>
+            <h3 class="text-xl font-extrabold mb-2 text-deep-blue">ప్రతి లక్ష్యం కోసం సౌకర్యవంతమైన నిబంధనలు</h3>
+            <p class="text-gray-600 text-sm">మీ ప్రత్యేక ఆర్థిక పరిస్థితికి సరిపోయే విధంగా అనుకూలీకరించిన తిరిగి చెల్లింపు ప్రణాళికలు (Customized Repayment Plans) మరియు పోటీ వడ్డీ రేట్లను (Competitive Interest Rates) మేము అందిస్తాము.</p>
+        </div>
+    </div>
+</section>
+    <footer class="site-footer">
+        <div class="page-container">
+            <div class="social-icons">
+                <a href="https://wa.me/+918341386855" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/loanwala.__76?igsh=Nm5xeW1zdXRkNHV2" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.google.com/maps/search/Charminar+Bus+Depot,+Taiba+Market,+Opp.+Hayath+College,+Hyd" target="_blank" aria-label="Map Location"><i class="fas fa-map-marker-alt"></i></a>
+            </div>
+            <p><strong>© 2024 లోన్ వాలా.</strong> అన్ని బ్యాంకులు, NBFC మరియు RBI రిజిస్టర్డ్. | స్థానం: చార్మినార్ బస్ డిపో, తైబా మార్కెట్, హయత్ కాలేజ్ ఎదురుగా, హైదరాబాద్.</p>
+        </div>
+    </footer>
+
+<script>
+    const modal = document.getElementById("applicationModal");
+    const openBtn = document.getElementById("openModalBtn");
+    const closeBtn = document.getElementById("closeModalBtn");
+    const form = document.getElementById("loanApplicationForm");
+    const submissionMessage = document.getElementById("submissionMessage");
+
+    openBtn.onclick = function(e) {
+        e.preventDefault(); 
+        modal.style.display = "block";
+        submissionMessage.classList.add('hidden'); 
+        form.reset(); 
+    }
+
+    closeBtn.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const formData = {
+            fullName: document.getElementById('fullName').value,
+            mobile: document.getElementById('mobile').value,
+            email: document.getElementById('email').value,
+            loanType: document.getElementById('loanType').value,
+            message: document.getElementById('message').value
+        };
+
+        console.log("Telugu Form Submitted:", formData);
+
+        submissionMessage.classList.remove('hidden');
+        form.querySelector('button[type="submit"]').classList.add('hidden');
+        
+        setTimeout(() => {
+            modal.style.display = "none";
+            form.querySelector('button[type="submit"]').classList.remove('hidden');
+            submissionMessage.classList.add('hidden');
+        }, 3000);
+    });
+</script>
+
+</body>
+</html>
