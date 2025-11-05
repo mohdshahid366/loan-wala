@@ -15,7 +15,7 @@
             --max-width: 1200px; 
             --deep-blue: #004d99;
             --accent-blue: #0066cc;
-            --cta-green: #2ECC71; /* New, strong action color */
+            --cta-green: #2ECC71; 
             --transition: 0.3s ease-in-out; 
             --modal-bg: rgba(0, 0, 0, 0.7);
         }
@@ -30,7 +30,7 @@
             color: #333;
         }
 
-        /* Content Wrapper for standardizing width and centering */
+        /* Content Wrapper */
         .page-container {
             max-width: var(--max-width);
             margin: 0 auto;
@@ -41,8 +41,9 @@
         header {
             background-color: var(--deep-blue);
             color: white;
-            padding: 15px 0; /* Padding handled by internal container */
+            padding: 15px 0;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25); 
+            position: relative;
         }
 
         header .page-container {
@@ -57,7 +58,7 @@
         }
 
         header img {
-            height: 50px; /* Slightly smaller logo */
+            height: 50px; 
             width: 50px;
             margin-right: 15px;
             border-radius: 50%;
@@ -68,7 +69,7 @@
             font-size: 28px;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            font-weight: 800; /* Extra bold for prominence */
+            font-weight: 800;
         }
         .title p {
             margin: 0;
@@ -76,11 +77,15 @@
             font-size: 13px;
             font-weight: 400;
         }
-
+        
+        /* DESKTOP Contact Info Styling (Default for large screens) */
         .header-right {
             text-align: right; 
             font-size: 0.9em; 
-            line-height: 1.5; 
+            line-height: 1.4;
+            padding-right: 10px;
+            border-right: 2px solid var(--cta-green);
+            display: none; /* Default to hidden, shown by desktop media query */
         }
 
         .header-right p {
@@ -101,7 +106,62 @@
 
         .header-right i {
             font-size: 1.1em; 
-            color: #ffd700; /* Gold/Accent for key contact info */
+            color: #ffd700;
+        }
+
+        /* MOBILE: Hamburger Menu Button Styling */
+        .hamburger-menu-btn {
+            display: none; /* Default to hidden, shown by mobile media query */
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+            z-index: 50;
+            padding: 10px;
+        }
+        
+        /* MOBILE: Contact Menu Styling */
+        #contactMenu {
+            display: none; 
+            position: absolute;
+            top: 100%;
+            right: 0;
+            width: 250px;
+            background-color: var(--deep-blue);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 15px 0;
+            text-align: left;
+            z-index: 40;
+            border-radius: 0 0 8px 8px;
+        }
+
+        #contactMenu p {
+            padding: 8px 20px;
+            margin: 0;
+            font-size: 0.9em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        #contactMenu p:last-child {
+            border-bottom: none;
+        }
+
+        #contactMenu i {
+            color: #ffd700;
+            font-size: 1.1em;
+        }
+        
+        #contactMenu a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        #contactMenu a:hover {
+            color: var(--cta-green);
         }
 
         /* Navigation Bar */
@@ -117,7 +177,7 @@
             padding: 8px 25px;
             margin: 0 5px;
             display: inline-block;
-            border-radius: 20px; /* Pill shape for language links */
+            border-radius: 20px;
             transition: background-color 0.3s;
             font-weight: 600;
             font-size: 0.95em;
@@ -127,20 +187,19 @@
             background-color: var(--deep-blue);
         }
 
-        /* Video Section - Centering and Responsiveness */
+        /* Video Section */
         .video-wrapper {
             max-width: 800px;
             margin: 0 auto;
             padding: 0;
             background-color: white;
-            border-radius: 12px; /* Slightly reduced border radius */
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* More subtle, professional shadow */
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
             overflow: hidden;
             margin-bottom: 50px;
-            border: 1px solid #ddd; /* Added a subtle border */
+            border: 1px solid #ddd;
         }
 
-        /* Aspect Ratio Trick for Responsive Centering (16:9) */
         .video-responsive {
             position: relative;
             padding-bottom: 56.25%; 
@@ -156,10 +215,9 @@
             width: 100%;
             height: 100%;
             border: none;
-            /* *FIXED: Removed deprecated frameborder="5" from HTML/CSS* */
         }
 
-        /* Apply Now Button (Primary CTA) */
+        /* Apply Now Button */
         .apply-button {
             background-color: var(--cta-green); 
             color: white;
@@ -167,28 +225,71 @@
             text-decoration: none;
             font-size: 1.5em;
             font-weight: 700;
-            border-radius: 40px; /* Modern, pill-shape */
+            border-radius: 40px;
             border: none;
             cursor: pointer;
             transition: background-color 0.3s, transform 0.1s, box-shadow 0.3s;
             display: inline-block;
             margin-bottom: 50px;
-            box-shadow: 0 5px 15px rgba(46, 204, 113, 0.4); /* Lifted appearance */
+            box-shadow: 0 5px 15px rgba(46, 204, 113, 0.4);
         }
 
         .apply-button:hover {
-            background-color: #27AE60; /* Darken on hover */
-            transform: translateY(-3px); /* Stronger lift effect */
+            background-color: #27AE60;
+            transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(46, 204, 113, 0.5);
         }
+        
+        /* Consolidated Value Propositions Section */
+        .value-propositions-single {
+            max-width: 900px;
+            margin: 0 auto 50px auto;
+            padding: 30px 40px;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-top: 5px solid var(--accent-blue);
+        }
 
+        .value-item {
+            display: flex;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .value-item:last-child {
+            border-bottom: none;
+        }
+
+        .value-icon {
+            font-size: 2.2rem;
+            color: var(--cta-green);
+            min-width: 50px;
+            text-align: center;
+            margin-right: 20px;
+        }
+
+        .value-text h3 {
+            margin: 0;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--deep-blue);
+            text-align: left;
+        }
+        .value-text p {
+            margin: 5px 0 0 0;
+            font-size: 0.95rem;
+            color: #555;
+            text-align: left;
+        }
+        
         /* Footer */
         .site-footer {
             margin-top: 50px;
             padding: 25px 0;
-            background-color: var(--deep-blue); /* Solid deep blue, cleaner look */
+            background-color: var(--deep-blue);
             color: #fff;
-            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.15); /* Subtle shadow for definition */
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.15);
         }
 
         .site-footer .social-icons {
@@ -214,6 +315,7 @@
             line-height: 1.6;
             padding: 0 10px;
         }
+        
         /* Modal Styles */
         .modal {
             display: none; 
@@ -225,23 +327,37 @@
             height: 100%;
             overflow: auto;
             background-color: var(--modal-bg);
-            backdrop-filter: blur(4px); /* Slightly less blur */
+            backdrop-filter: blur(4px);
             padding-top: 60px;
         }
 
         .modal-content {
             background-color: #fefefe;
             margin: 5% auto; 
-            padding: 30px; /* More padding for a premium feel */
+            padding: 30px; 
             border-radius: 12px;
             width: 90%; 
-            max-width: 550px; /* Slightly wider modal */
+            max-width: 550px; 
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
             animation: fadeIn 0.3s ease-out;
         }
+        
+        .close-btn {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: black;
+            text-decoration: none;
+        }
 
         .form-input-english {
-            /* Kept existing styles but ensured consistency */
             width: 100%;
             padding: 12px;
             margin-top: 5px;
@@ -259,105 +375,106 @@
         }
         
         .form-submit-btn {
-            background-color: var(--accent-blue); /* Used accent blue for form button */
+            background-color: var(--accent-blue);
             transition: background-color 0.3s;
+            width: 100%;
+            padding: 12px 20px;
+            color: white;
+            font-size: 1.1em;
+            font-weight: 600;
+            border-radius: 8px;
         }
         .form-submit-btn:hover {
             background-color: var(--deep-blue);
         }
         .success-message {
-            /* Making the success message stand out more */
             background-color: #e6f7e9;
             color: #27ae60;
             border: 1px solid #2ecc71;
             font-weight: 600;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        /* ================================================= */
+        /* --- THIS IS THE SECTION THAT FIXES THE PROBLEM --- */
+        /* ================================================= */
+
+        /* MEDIA QUERY: Mobile Optimization (Max Width 768px) */
+        @media (max-width: 768px) {
+            
+            /* CRITICAL FIX: Ensure the header aligns items horizontally */
+             header .page-container {
+                flex-direction: row !important; /* Keep logo and hamburger on same line */
+                justify-content: space-between !important;
+                align-items: center !important;
+                padding: 0 15px !important;
+            }
+            
+            /* HIDE DESKTOP contact info on mobile */
+            .header-right {
+                display: none !important; 
+            }
+            /* SHOW hamburger button on mobile */
+            .hamburger-menu-btn {
+                display: block !important;
+            }
+
+            /* Adjust logo/title for mobile */
+            .header-left {
+                margin-bottom: 0 !important;
+                flex-direction: row !important; /* Keep logo and title on same line */
+            }
+
+            .title h1 {
+                font-size: 20px !important;
+            }
+            .title p {
+                font-size: 10px !important;
+            }
+            
+            /* Other mobile styles */
+            .apply-button {
+                width: 90%;
+            }
+            .value-propositions-single {
+                padding: 20px;
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+            nav a {
+                font-size: 0.8em;
+                padding: 5px 12px;
+            }
+            .value-text h3 { font-size: 1.1rem; }
+            .value-text p { font-size: 0.85rem; }
+        }
+        
+        /* MEDIA QUERY: Desktop (Min Width 769px) */
+        @media (min-width: 769px) {
+            /* SHOW DESKTOP contact info on desktop */
+            .header-right {
+                display: block !important;
+            }
+            /* HIDE hamburger button and mobile menu on desktop */
+            .hamburger-menu-btn, #contactMenu {
+                display: none !important; 
+            }
         }
         /* ================================================= */
-/* MEDIA QUERY: Mobile Optimization (Max Width 600px) */
-/* ================================================= */
+        /* --- END OF FIX SECTION --- */
+        /* ================================================= */
 
-@media (max-width: 600px) {
-    
-    /* HEADER FIXES: Making it stacked for mobile */
-    header .page-container {
-        flex-direction: column; /* Stack items vertically */
-        align-items: center;
-        padding-top: 10px;
-        padding-bottom: 10px;
-    }
-
-    .header-left {
-        flex-direction: column; /* Stack logo and title */
-        padding-left: 0;
-        margin-bottom: 15px; /* Space below logo/title block */
-    }
-
-    header img {
-        height: 45px; /* Smaller logo */
-        width: 45px;
-        margin-right: 0;
-        margin-bottom: 5px;
-    }
-
-    .title h1 {
-        font-size: 22px; /* Smaller main title */
-        letter-spacing: 1px;
-    }
-    .title p {
-        font-size: 10px; /* Smaller subtitle */
-    }
-
-    .header-right {
-        text-align: center;
-        width: 100%; /* Take full width */
-        font-size: 0.8em;
-    }
-    .header-right p {
-        justify-content: center; /* Center contact icons */
-        margin: 1px 0;
-    }
-    
-    /* NAVIGATION FIXES: Making links smaller */
-    nav a {
-        font-size: 0.8em; /* Smaller font for language links */
-        padding: 5px 12px; /* Less padding */
-        margin: 0 2px;
-    }
-
-    /* CTA BUTTON FIXES: Making button full width and more compact */
-    .apply-button {
-        font-size: 1.2em;
-        padding: 15px 30px;
-        width: 90%; /* Nearly full width button */
-        margin-top: 20px;
-    }
-
-    /* VALUE PROPOSITIONS FIXES: Stacking cards neatly */
-    .value-propositions .flex-wrap {
-        flex-direction: column; /* Stack cards on top of each other */
-        align-items: center;
-    }
-    .value-card {
-        width: 95% !important; /* Full width for cards on mobile */
-        max-width: 350px;
-        margin-bottom: 15px;
-    }
-    .value-card h3 {
-        font-size: 18px;
-    }
-    
-    .site-footer p{
-        font-size: 0.75em;
-    }
-}
     </style>
     <script>
-        // Tailwind configuration for accent color
+        // Tailwind configuration
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'accent': '#004d99', /* deep-blue */
+                        'accent': '#004d99', 
                         'cta': '#2ECC71',
                     }
                 }
@@ -376,17 +493,29 @@
                 <p>LOANS · FINANCE · GOALS</p>
                 </div>
             </div>
+            
             <div class="header-right">
                 <p><i class="fas fa-phone"></i> +91-9705607033</p>
                 <p><i class="fas fa-envelope"></i> office@email.com</p>
                 <p><a href="https://www.google.com/maps/search/Charminar+Bus+Depot,+Taiba+Market,+Opp.+Hayath+College,+Hyd" target="_blank" aria-label="Map Location"><i class="fas fa-map-marker-alt"></i> Your Address 22</a></p>
             </div>
+            
+            <button class="hamburger-menu-btn" id="hamburgerBtn" aria-label="Open contact menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            
         </div>
-    </header>
+        
+        <div id="contactMenu">
+            <p><i class="fas fa-phone"></i> +91-9705607033</p>
+            <p><i class="fas fa-envelope"></i> office@email.com</p>
+            <p><a href="https://www.google.com/maps/search/Charminar+Bus+Depot,+Taiba+Market,+Opp.+Hayath+College,+Hyd" target="_blank" aria-label="Map Location"><i class="fas fa-map-marker-alt"></i> Your Address 22</a></p>
+        </div>
+        </header>
 
     <nav>
         <div class="page-container">
-            <a href="index.html">ENGLISH</a>
+            <a href="loan.html">ENGLISH</a>
             <a href="loan-hindi.html">HINDI</a>
             <a href="loan-telugu.html">TELUGU</a>
         </div>
@@ -443,7 +572,7 @@
                         <option value="Home">Home Loan</option>
                         <option value="Car">Car Loan</option>
                         <option value="Other">Other</option>
-                    </select>  
+                    </select>
                 </div>
 
                 <div>
@@ -464,25 +593,34 @@
     </div>
     
     <section class="value-propositions mt-12 mb-12">
-    <h2 class="text-3xl font-bold text-center mb-10 text-accent">Why Choose LOAN WALA?</h2>
-    <div class="flex flex-wrap justify-around gap-8">
-        <div class="value-card w-full sm:w-1/3 md:w-1/4 p-6 bg-white rounded-xl shadow-lg transition duration-300 hover:shadow-xl hover:scale-[1.02] border-t-4 border-cta">
-            <div class="text-4xl text-cta mb-4"><i class="fas fa-clock"></i></div>
-            <h3 class="text-xl font-extrabold mb-2 text-deep-blue">Rapid 24-Hour Approval</h3>
-            <p class="text-gray-600 text-sm">Our streamlined digital application ensures you receive a decision and funds within 24 business hours, so your goals don't have to wait.</p>
+        <h2 class="text-3xl font-bold text-center mb-10 text-accent">Why Choose LOAN WALA?</h2>
+        <div class="value-propositions-single">
+            <div class="value-item">
+                <div class="value-icon"><i class="fas fa-clock"></i></div>
+                <div class="value-text">
+                    <h3>Rapid 24-Hour Approval</h3>
+                    <p>Our streamlined digital application ensures you receive a decision and funds within 24 business hours, so your goals don't have to wait.</p>
+                </div>
+            </div>
+            
+            <div class="value-item">
+                <div class="value-icon"><i class="fas fa-shield-alt"></i></div>
+                <div class="value-text">
+                    <h3>Transparent, No-Hidden-Fee Loans</h3>
+                    <p>We guarantee full transparency with no hidden charges, complex fine print, or unexpected application fees. Trust is our core commitment.</p>
+                </div>
+            </div>
+
+            <div class="value-item">
+                <div class="value-icon"><i class="fas fa-thumbs-up"></i></div>
+                <div class="value-text">
+                    <h3>Flexible Terms for Every Goal</h3>
+                    <p>We offer customized repayment plans and competitive interest rates to fit your unique financial situation.</p>
+                </div>
+            </div>
         </div>
-        <div class="value-card w-full sm:w-1/3 md:w-1/4 p-6 bg-white rounded-xl shadow-lg transition duration-300 hover:shadow-xl hover:scale-[1.02] border-t-4 border-cta">
-            <div class="text-4xl text-cta mb-4"><i class="fas fa-shield-alt"></i></div>
-            <h3 class="text-xl font-extrabold mb-2 text-deep-blue">Transparent, No-Hidden-Fee Loans</h3>
-            <p class="text-gray-600 text-sm">We guarantee full transparency with no hidden charges, complex fine print, or unexpected application fees. Trust is our core commitment.</p>
-        </div>
-        <div class="value-card w-full sm:w-1/3 md:w-1/4 p-6 bg-white rounded-xl shadow-lg transition duration-300 hover:shadow-xl hover:scale-[1.02] border-t-4 border-cta">
-            <div class="text-4xl text-cta mb-4"><i class="fas fa-thumbs-up"></i></div>
-            <h3 class="text-xl font-extrabold mb-2 text-deep-blue">Flexible Terms for Every Goal</h3>
-            <p class="text-gray-600 text-sm">We offer customized repayment plans and competitive interest rates to fit your unique financial situation.</p>
-        </div>
-    </div>
-</section>
+    </section>
+    
     <footer class="site-footer">
         <div class="page-container">
             <div class="social-icons">
@@ -496,11 +634,25 @@
     </footer>
 
 <script>
+    // Modal script
     const modal = document.getElementById("applicationModal");
     const openBtn = document.getElementById("openModalBtn");
     const closeBtn = document.getElementById("closeModalBtn");
     const form = document.getElementById("loanApplicationForm");
     const submissionMessage = document.getElementById("submissionMessage");
+    
+    // Hamburger menu script
+    const hamburgerBtn = document.getElementById("hamburgerBtn");
+    const contactMenu = document.getElementById("contactMenu");
+
+    hamburgerBtn.onclick = function() {
+        // Toggle display property
+        if (contactMenu.style.display === "block") {
+            contactMenu.style.display = "none";
+        } else {
+            contactMenu.style.display = "block";
+        }
+    }
 
     openBtn.onclick = function(e) {
         e.preventDefault(); 
@@ -516,6 +668,12 @@
     window.onclick = function(event) {
         if (event.target == modal) {
             modal.style.display = "none";
+        }
+        // Close menu if clicking outside (and it's not the button or the menu itself)
+        if (event.target !== hamburgerBtn && !hamburgerBtn.contains(event.target) && event.target !== contactMenu && !contactMenu.contains(event.target)) {
+             if (contactMenu.style.display === "block") {
+                contactMenu.style.display = "none";
+             }
         }
     }
 
