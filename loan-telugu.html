@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Niramit:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Noto+Sans+Telugu:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <script src="https://cdn.tailwindcss.com"></script>
@@ -15,22 +15,20 @@
             --max-width: 1200px; 
             --deep-blue: #004d99;
             --accent-blue: #0066cc;
-            --cta-green: #2ECC71; /* New, strong action color */
+            --cta-green: #2ECC71; 
             --transition: 0.3s ease-in-out; 
             --modal-bg: rgba(0, 0, 0, 0.7);
         }
 
         /* Basic Reset and Global Styles */
         body {
-            /* తెలుగు ఫాంట్ కోసం 'Niramit'ను చేర్చాం */
-            font-family: 'Inter', 'Niramit', sans-serif; 
+            font-family: 'Noto Sans Telugu', 'Inter', sans-serif; 
             text-align: center; 
             margin: 0;
             padding: 0;
             background-color: #f8f8f8;
             color: #333;
         }
-
         /* Content Wrapper for standardizing width and centering */
         .page-container {
             max-width: var(--max-width);
@@ -42,7 +40,7 @@
         header {
             background-color: var(--deep-blue);
             color: white;
-            padding: 15px 0; 
+            padding: 15px 0;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25); 
         }
 
@@ -78,10 +76,12 @@
             font-weight: 400;
         }
 
+        /* Desktop View: Show contact info */
         .header-right {
             text-align: right; 
             font-size: 0.9em; 
             line-height: 1.5; 
+            display: block; /* Default to showing */
         }
 
         .header-right p {
@@ -102,7 +102,21 @@
 
         .header-right i {
             font-size: 1.1em; 
-            color: #ffd700; /* Gold/Accent for key contact info */
+            color: #ffd700; 
+        }
+        
+        /* NEW: Hamburger Icon Styling (Hidden on Desktop) */
+        .hamburger-icon {
+            display: none; /* Hidden by default */
+            font-size: 1.8rem;
+            color: white;
+            cursor: pointer;
+            padding: 5px;
+            transition: color 0.3s;
+            z-index: 110; /* Above everything */
+        }
+        .hamburger-icon:hover {
+            color: #ffd700;
         }
 
         /* Navigation Bar */
@@ -137,7 +151,7 @@
             border-radius: 12px; 
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); 
             overflow: hidden;
-            margin-bottom: 50px;
+            margin-bottom: 50px; /* Added margin for spacing */
             border: 1px solid #ddd; 
         }
 
@@ -181,7 +195,7 @@
             transform: translateY(-3px); 
             box-shadow: 0 8px 20px rgba(46, 204, 113, 0.5);
         }
-
+        
         /* Footer */
         .site-footer {
             margin-top: 50px;
@@ -214,34 +228,12 @@
             line-height: 1.6;
             padding: 0 10px;
         }
+
         /* Modal Styles */
-        .modal {
-            display: none; 
-            position: fixed;
-            z-index: 100; 
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: var(--modal-bg);
-            backdrop-filter: blur(4px); 
-            padding-top: 60px;
-        }
-
-        .modal-content {
-            background-color: #fefefe;
-            margin: 5% auto; 
-            padding: 30px; 
-            border-radius: 12px;
-            width: 90%; 
-            max-width: 550px; 
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-            animation: fadeIn 0.3s ease-out;
-        }
-
+        .modal { display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: var(--modal-bg); backdrop-filter: blur(4px); padding-top: 60px; }
+        .modal-content { background-color: #fefefe; margin: 5% auto; padding: 30px; border-radius: 12px; width: 90%; max-width: 550px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); animation: fadeIn 0.3s ease-out; }
+        
         .form-input-telugu {
-            /* Kept existing styles but ensured consistency */
             width: 100%;
             padding: 12px;
             margin-top: 5px;
@@ -249,119 +241,110 @@
             border-radius: 8px;
             box-sizing: border-box;
             font-size: 1rem;
-            font-family: 'Inter', 'Niramit', sans-serif;
+            font-family: 'Noto Sans Telugu', sans-serif;
             transition: border-color 0.3s, box-shadow 0.3s;
         }
-        .form-input-telugu:focus {
-            border-color: var(--accent-blue);
-            box-shadow: 0 0 5px rgba(0, 77, 153, 0.3);
-            outline: none;
-        }
+        .form-input-telugu:focus { border-color: var(--accent-blue); box-shadow: 0 0 5px rgba(0, 77, 153, 0.3); outline: none; }
         
-        .form-submit-btn {
-            background-color: var(--accent-blue); 
-            transition: background-color 0.3s;
-        }
-        .form-submit-btn:hover {
-            background-color: var(--deep-blue);
-        }
-        .success-message {
-            /* Making the success message stand out more */
-            background-color: #e6f7e9;
-            color: #27ae60;
-            border: 1px solid #2ecc71;
-            font-weight: 600;
-            padding: 15px;
-            border-radius: 8px;
-            text-align: center;
-            margin-bottom: 10px;
-        }
+        .form-submit-btn { background-color: var(--accent-blue); transition: background-color 0.3s; }
+        .form-submit-btn:hover { background-color: var(--deep-blue); }
+        .success-message { background-color: #e6f7e9; color: #27ae60; border: 1px solid #2ecc71; font-weight: 600; }
+
         /* ================================================= */
-/* MEDIA QUERY: Mobile Optimization (Max Width 600px) */
-/* ================================================= */
+        /* MEDIA QUERY: Mobile Optimization (Max Width 600px) */
+        /* ================================================= */
 
-@media (max-width: 600px) {
-    
-    /* HEADER FIXES: Making it stacked for mobile */
-    header .page-container {
-        flex-direction: column; /* Stack items vertically */
-        align-items: center;
-        padding-top: 10px;
-        padding-bottom: 10px;
-    }
+        @media (max-width: 600px) {
+            
+            /* HEADER FIXES: Stacked Logo and Hamburger Menu */
+            header .page-container {
+                flex-direction: row; 
+                align-items: center;
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
 
-    .header-left {
-        flex-direction: column; /* Stack logo and title */
-        padding-left: 0;
-        margin-bottom: 15px; /* Space below logo/title block */
-    }
+            .header-left {
+                flex-direction: row; 
+                margin-bottom: 0;
+            }
 
-    header img {
-        height: 45px; /* Smaller logo */
-        width: 45px;
-        margin-right: 0;
-        margin-bottom: 5px;
-    }
+            /* HIDE contact info by default, SHOW hamburger icon */
+            .header-right {
+                display: none; 
+                position: absolute;
+                top: 70px; 
+                right: 0;
+                width: 50%;
+                background-color: var(--deep-blue);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                padding: 15px;
+                text-align: left;
+                z-index: 100;
+            }
 
-    .title h1 {
-        font-size: 22px; /* Smaller main title */
-        letter-spacing: 1px;
-    }
-    .title p {
-        font-size: 10px; /* Smaller subtitle */
-    }
+            /* This class is added by JS to show the menu */
+            .header-right.mobile-menu-open {
+                display: block !important;
+            }
 
-    .header-right {
-        text-align: center;
-        width: 100%; /* Take full width */
-        font-size: 0.8em;
-    }
-    .header-right p {
-        justify-content: center; /* Center contact icons */
-        margin: 1px 0;
-    }
-    
-    /* NAVIGATION FIXES: Making links smaller */
-    nav a {
-        font-size: 0.8em; /* Smaller font for language links */
-        padding: 5px 12px; /* Less padding */
-        margin: 0 2px;
-    }
+            /* Show the hamburger icon */
+            .hamburger-icon {
+                display: block; 
+            }
 
-    /* CTA BUTTON FIXES: Making button full width and more compact */
-    .apply-button {
-        font-size: 1.2em;
-        padding: 15px 30px;
-        width: 90%; /* Nearly full width button */
-        margin-top: 20px;
-    }
+            .header-right p {
+                justify-content: flex-start; 
+                margin: 5px 0;
+            }
+            
+            /* VALUE PROPOSITIONS FIX: Hide the paragraph text on mobile and make cards compact */
+            .value-card p {
+                display: none; /* Hides the description */
+            }
+            
+            /* Ensure the heading remains visible and centered */
+            .value-card h3 {
+                font-size: 15px; 
+                margin-top: 0;
+                margin-bottom: 0;
+            }
 
-    /* VALUE PROPOSITIONS FIXES: Stacking cards neatly */
-    .value-propositions .flex-wrap {
-        flex-direction: column; /* Stack cards on top of each other */
-        align-items: center;
-    }
-    .value-card {
-        width: 95% !important; /* Full width for cards on mobile */
-        max-width: 350px;
-        margin-bottom: 15px;
-    }
-    .value-card h3 {
-        font-size: 18px;
-    }
-    
-    .site-footer p{
-        font-size: 0.75em;
-    }
-}
+            /* Make the card itself more compact and inline-like */
+            .value-card {
+                width: 95% !important;
+                max-width: 350px;
+                margin-bottom: 15px;
+                padding: 10px; 
+                display: flex; 
+                align-items: center;
+                text-align: left;
+            }
+            
+            /* Style the icon to sit on the left */
+            .value-card .text-4xl {
+                font-size: 1.8rem;
+                margin-right: 15px;
+                margin-bottom: 0;
+                min-width: 30px; 
+            }
+
+            /* Other Mobile Fixes */
+            header img { height: 45px; width: 45px; margin-right: 10px; }
+            .title h1 { font-size: 22px; letter-spacing: 1px; }
+            .title p { font-size: 10px; }
+            nav a { font-size: 0.8em; padding: 5px 12px; margin: 0 2px; }
+            .apply-button { font-size: 1.2em; padding: 15px 30px; width: 90%; margin-top: 20px; }
+            .value-propositions .flex-wrap { flex-direction: column; align-items: center; }
+            .site-footer p{ font-size: 0.75em; }
+        }
     </style>
     <script>
-        // Tailwind configuration for accent color
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'accent': '#004d99', /* deep-blue */
+                        'accent': '#004d99', 
                         'cta': '#2ECC71',
                     }
                 }
@@ -377,13 +360,15 @@
                 <img src="mi.jpg" alt="లోన్ వాలా లోగో">
                 <div class="title">
                     <h1>లోన్ వాలా</h1>
-                <p>రుణాలు · ఫైనాన్స్ · లక్ష్యాలు</p>
+                    <p>లోన్స్ · ఫైనాన్స్ · లక్ష్యాలు</p>
                 </div>
             </div>
-            <div class="header-right">
+            <i class="fas fa-bars hamburger-icon" id="menuToggle"></i>
+
+            <div class="header-right" id="headerRightMenu">
                 <p><i class="fas fa-phone"></i> +91-9705607033</p>
                 <p><i class="fas fa-envelope"></i> office@email.com</p>
-                <p><a href="https://www.google.com/maps/search/Charminar+Bus+Depot,+Taiba+Market,+Opp.+Hayath+College,+Hyd" target="_blank" aria-label="Map Location"><i class="fas fa-map-marker-alt"></i> మీ చిరునామా 22</a></p>
+                <p><a href="https://www.google.com/maps/search/Charminar+Bus+Depot,+Taiba+Market,+Opp.+Hayath+College,+Hyd" target="_blank" aria-label="మ్యాప్ స్థానం"><i class="fas fa-map-marker-alt"></i> మీ చిరునామా 22</a></p>
             </div>
         </div>
     </header>
@@ -405,16 +390,15 @@
                 </iframe>
             </div>
         </div>
-
         <div class="button-container">
-            <a href="#" id="openModalBtn" class="apply-button">రుణం కోసం ఇప్పుడే దరఖాస్తు చేయండి</a>
+            <a href="#" id="openModalBtn" class="apply-button">ఇప్పుడే దరఖాస్తు చేసుకోండి</a>
         </div>
     </div>
     
     <div id="applicationModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" id="closeModalBtn">×</span>
-            <h2 class="text-3xl font-extrabold mb-6 text-accent text-center">రుణ దరఖాస్తు ఫారం</h2>
+            <h2 class="text-3xl font-extrabold mb-6 text-accent text-center">లోన్ దరఖాస్తు ఫారం</h2>
             <form id="loanApplicationForm" class="space-y-4">
                 
                 <div>
@@ -432,28 +416,28 @@
                 </div>
                 
                 <div>
-                    <label for="email" class="block text-left text-gray-700 font-medium">ఈమెయిల్:</label>
+                    <label for="email" class="block text-left text-gray-700 font-medium">ఇమెయిల్:</label>
                     <input type="email" id="email" name="email"
                            class="form-input-telugu" 
                            placeholder="example@domain.com">
                 </div>
 
                 <div>
-                    <label for="loanType" class="block text-left text-gray-700 font-medium">రుణం రకం:</label>
+                    <label for="loanType" class="block text-left text-gray-700 font-medium">లోన్ రకం:</label>
                     <select id="loanType" name="loanType" required class="form-input-telugu">
                         <option value="">దయచేసి ఎంచుకోండి</option>
-                        <option value="Personal">వ్యక్తిగత రుణం (Personal Loan)</option>
-                        <option value="Business">వ్యాపార రుణం (Business Loan)</option>
-                        <option value="Home">గృహ రుణం (Home Loan)</option>
-                        <option value="Car">కారు రుణం (Car Loan)</option>
+                        <option value="Personal">వ్యక్తిగత లోన్</option>
+                        <option value="Business">వ్యాపార లోన్</option>
+                        <option value="Home">గృహ లోన్</option>
+                        <option value="Car">కారు లోన్</option>
                         <option value="Other">ఇతర</option>
                     </select>  
                 </div>
 
                 <div>
-                    <label for="message" class="block text-left text-gray-700 font-medium">సందేశం (Message):</label>
+                    <label for="message" class="block text-left text-gray-700 font-medium">సందేశం:</label>
                     <textarea id="message" name="message" rows="3" class="form-input-telugu"
-                              placeholder="మరిన్ని వివరాల కోసం ఇక్కడ రాయండి..."></textarea>
+                              placeholder="మరిన్ని వివరాల కోసం ఇక్కడ వ్రాయండి..."></textarea>
                 </div>
 
                 <div id="submissionMessage" class="success-message hidden">
@@ -461,41 +445,42 @@
                 </div>
 
                 <button type="submit" class="form-submit-btn bg-accent">
-                    దరఖాస్తును సమర్పించండి
+                    దరఖాస్తు సమర్పించండి
                 </button>
             </form>
         </div>
     </div>
     
     <section class="value-propositions mt-12 mb-12">
-    <h2 class="text-3xl font-bold text-center mb-10 text-accent">లోన్ వాలా (LOAN WALA) ను ఎందుకు ఎంచుకోవాలి?</h2>
-    <div class="flex flex-wrap justify-around gap-8">
-        <div class="value-card w-full sm:w-1/3 md:w-1/4 p-6 bg-white rounded-xl shadow-lg transition duration-300 hover:shadow-xl hover:scale-[1.02] border-t-4 border-cta">
-            <div class="text-4xl text-cta mb-4"><i class="fas fa-clock"></i></div>
-            <h3 class="text-xl font-extrabold mb-2 text-deep-blue">వేగవంతమైన 24 గంటల్లో ఆమోదం</h3>
-            <p class="text-gray-600 text-sm">మీ లక్ష్యాలు వేచి ఉండకుండా, 24 పని గంటలలోపు నిర్ణయం, నిధులు మీకు అందేలా మా డిజిటల్ దరఖాస్తు ప్రక్రియ సులభతరం చేస్తుంది.</p>
+        <h2 class="text-3xl font-bold text-center mb-10 text-accent">మీరు లోన్ వాలాను ఎందుకు ఎంచుకోవాలి?</h2>
+        <div class="flex flex-wrap justify-around gap-8">
+            <div class="value-card w-full sm:w-1/3 md:w-1/4 p-6 bg-white rounded-xl shadow-lg transition duration-300 hover:shadow-xl hover:scale-[1.02] border-t-4 border-cta">
+                <div class="text-4xl text-cta mb-4"><i class="fas fa-clock"></i></div>
+                <h3 class="text-xl font-extrabold mb-2 text-deep-blue">24 గంటల్లో త్వరిత ఆమోదం</h3>
+                <p class="text-gray-600 text-sm">మా డిజిటల్ దరఖాస్తు 24 పని గంటలలోపు నిర్ణయం మరియు నిధులను అందుకునేలా చేస్తుంది.</p>
+            </div>
+            <div class="value-card w-full sm:w-1/3 md:w-1/4 p-6 bg-white rounded-xl shadow-lg transition duration-300 hover:shadow-xl hover:scale-[1.02] border-t-4 border-cta">
+                <div class="text-4xl text-cta mb-4"><i class="fas fa-shield-alt"></i></div>
+                <h3 class="text-xl font-extrabold mb-2 text-deep-blue">దాచిన ఫీజులు లేని పారదర్శక లోన్లు</h3>
+                <p class="text-gray-600 text-sm">మేము ఎటువంటి దాచిన ఛార్జీలు లేదా సంక్లిష్ట నిబంధనలు లేకుండా పూర్తి పారదర్శకతకు హామీ ఇస్తున్నాము।</p>
+            </div>
+            <div class="value-card w-full sm:w-1/3 md:w-1/4 p-6 bg-white rounded-xl shadow-lg transition duration-300 hover:shadow-xl hover:scale-[1.02] border-t-4 border-cta">
+                <div class="text-4xl text-cta mb-4"><i class="fas fa-thumbs-up"></i></div>
+                <h3 class="text-xl font-extrabold mb-2 text-deep-blue">ప్రతి లక్ష్యానికి అనువైన నిబంధనలు</h3>
+                <p class="text-gray-600 text-sm">మీ ప్రత్యేక ఆర్థిక పరిస్థితికి సరిపోయే విధంగా మేము అనుకూలీకరించిన తిరిగి చెల్లించే ప్రణాళికలు మరియు పోటీ వడ్డీ రేట్లను అందిస్తాము।</p>
+            </div>
         </div>
-        <div class="value-card w-full sm:w-1/3 md:w-1/4 p-6 bg-white rounded-xl shadow-lg transition duration-300 hover:shadow-xl hover:scale-[1.02] border-t-4 border-cta">
-            <div class="text-4xl text-cta mb-4"><i class="fas fa-shield-alt"></i></div>
-            <h3 class="text-xl font-extrabold mb-2 text-deep-blue">పారదర్శకత, దాచిన రుసుములు లేవు</h3>
-            <p class="text-gray-600 text-sm">ఎటువంటి దాచిన ఛార్జీలు, సంక్లిష్టమైన నిబంధనలు లేదా ఊహించని దరఖాస్తు రుసుములు లేకుండా, మేము పూర్తి పారదర్శకతకు హామీ ఇస్తున్నాము. విశ్వాసమే మా ప్రధాన నిబద్ధత.</p>
-        </div>
-        <div class="value-card w-full sm:w-1/3 md:w-1/4 p-6 bg-white rounded-xl shadow-lg transition duration-300 hover:shadow-xl hover:scale-[1.02] border-t-4 border-cta">
-            <div class="text-4xl text-cta mb-4"><i class="fas fa-thumbs-up"></i></div>
-            <h3 class="text-xl font-extrabold mb-2 text-deep-blue">ప్రతి లక్ష్యం కోసం సౌకర్యవంతమైన నిబంధనలు</h3>
-            <p class="text-gray-600 text-sm">మీ ప్రత్యేక ఆర్థిక పరిస్థితికి సరిపోయే విధంగా అనుకూలీకరించిన తిరిగి చెల్లింపు ప్రణాళికలు (Customized Repayment Plans) మరియు పోటీ వడ్డీ రేట్లను (Competitive Interest Rates) మేము అందిస్తాము.</p>
-        </div>
-    </div>
-</section>
+    </section>
+    
     <footer class="site-footer">
         <div class="page-container">
             <div class="social-icons">
-                <a href="https://wa.me/+918341386855" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.instagram.com/loanwala.__76?igsh=Nm5xeW1zdXRkNHV2" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.google.com/maps/search/Charminar+Bus+Depot,+Taiba+Market,+Opp.+Hayath+College,+Hyd" target="_blank" aria-label="Map Location"><i class="fas fa-map-marker-alt"></i></a>
+                <a href="https://wa.me/+918341386855" target="_blank" aria-label="వాట్సాప్"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" target="_blank" aria-label="ఫేస్బుక్"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/loanwala.__76?igsh=Nm5xeW1zdXRkNHV2" target="_blank" aria-label="ఇన్‌స్టాగ్రామ్"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.google.com/maps/search/Charminar+Bus+Depot,+Taiba+Market,+Opp.+Hayath+College,+Hyd" target="_blank" aria-label="మ్యాప్ స్థానం"><i class="fas fa-map-marker-alt"></i></a>
             </div>
-            <p><strong>© 2024 లోన్ వాలా.</strong> అన్ని బ్యాంకులు, NBFC మరియు RBI రిజిస్టర్డ్. | స్థానం: చార్మినార్ బస్ డిపో, తైబా మార్కెట్, హయత్ కాలేజ్ ఎదురుగా, హైదరాబాద్.</p>
+            <p><strong>© 2024 లోన్ వాలా.</strong> అన్ని బ్యాంకులు, ఎన్బిఎఫ్‌సి మరియు ఆర్‌బిఐ రిజిస్టర్డ్. | స్థానం: చార్మినార్ బస్ డిపో, తైబా మార్కెట్, హయత్ కాలేజీ ఎదురుగా, హైదరాబాద్।</p>
         </div>
     </footer>
 
@@ -505,6 +490,8 @@
     const closeBtn = document.getElementById("closeModalBtn");
     const form = document.getElementById("loanApplicationForm");
     const submissionMessage = document.getElementById("submissionMessage");
+    const menuToggle = document.getElementById('menuToggle');
+    const headerRightMenu = document.getElementById('headerRightMenu');
 
     openBtn.onclick = function(e) {
         e.preventDefault(); 
@@ -545,6 +532,22 @@
             submissionMessage.classList.add('hidden');
         }, 3000);
     });
+
+    // Hamburger Menu Toggle Logic
+    if (menuToggle && headerRightMenu) {
+        menuToggle.addEventListener('click', () => {
+            headerRightMenu.classList.toggle('mobile-menu-open');
+
+            if (headerRightMenu.classList.contains('mobile-menu-open')) {
+                menuToggle.classList.remove('fa-bars');
+                menuToggle.classList.add('fa-times');
+            } else {
+                menuToggle.classList.remove('fa-times');
+                menuToggle.classList.add('fa-bars');
+            }
+        });
+    }
+    // Removed all video generation logic
 </script>
 
 </body>
